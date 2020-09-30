@@ -1,0 +1,35 @@
+import java.util.*;
+public class search 
+{
+	public static void main(String[] args) 
+	{
+		Scanner scan = new Scanner(System.in);
+		int upperlim = 1000000;
+		int lowerlim =0;
+		int trycount =0;
+		int guess;
+		boolean guessed = false;
+		System.out.println("think of a number between 0 and 1 million");
+		System.out.println();
+		while(guessed == false)
+		{
+			guess = (upperlim+lowerlim)/2;
+			System.out.println("is your number equal to " + guess +" or is it less or more?");
+			trycount++;
+			String answer = scan.nextLine();
+			if (answer == "smaller" || answer == "less" || answer == "-")
+			{
+				upperlim = guess;
+			}
+			else if (answer == "higher" || answer == "more" || answer == "+")
+			{
+				lowerlim = guess;
+			}
+			else if(answer == "equal" || answer == "=")
+			{
+				System.out.println("number guessed in " + trycount + " tryes");
+				guessed = true;
+			}
+		}
+	}
+}
